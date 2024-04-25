@@ -1,7 +1,8 @@
 # Docker
 
 this file tells us about docker commands and installation process.
-Instalation{
+Instalation
+{
   1:sudo apt update
   2:sudo apt install apt-transport-https ca-certificates curl software-properties-common
   3:curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -9,6 +10,7 @@ Instalation{
   5:sudo apt update
   6:sudo apt install docker-ce
   7:docker --version
+}
   8: you can pull something from docker hub: sudo docker pull ubuntu-> by default it will download the latest version
   9: sudo docker image ls-> it shows your images
   10: sudo docker run ubuntu /bin/ls -l /-> it shows all of your container
