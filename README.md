@@ -22,5 +22,55 @@ Instalation
   14:sudo docker container rm <NO of container>
   15:sudo docker run hello-world -> it runs the container
   16:sudo docker container ls -a | awk '{print $1}' |xargs -n 1 sudo docker container rm -> it will remove all running and stopped container
-  
+ # How to pull ubuntu and use it
+ {
+ 1: sudo mkdir dockerdemo/demo
+ 2: cd dockerdemo/demo
+ 3:sudo nano dockerfile
+   {FROM ubuntu:jammy
+    RUN apt-get update && apt-get -y install build-essential && apt-get clean
+    RUN useradd -d /home/cyrus -s /bin/bash cyrus
+    USER cyrus
+    WORKDIR /home/cyrus
+    CMD ["/bin/bash"]
+    }
+  4:sudo docker build -t my-ubuntu .
+  5: sudo docker run -it --rm my-ububntu ( NOW YOU CAN USE THE CONTAINER INSIDE. YOU CAN CREATE A TABLE BY CREATE my_table and so on. you can exit by running exit)
+  6: sudo docker image ls
+  }
+# HOW TO PULL PHP CONTAINER AND USE IT.
+{
+  1: sudo mkdir demo2
+  2: cd demo2
+  3: sudo cp ../demo/dockerfile .
+  4: sudo nano dockerfile {
+    change apt-get essential to apt-get php
+    CMD ["/usr/bin/php", "-S", "0.0.0.0:8000"]
+    WORKDIR /app}
+  5: sudo docker build -t my-php .
+    
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+  
+  
