@@ -28,13 +28,13 @@ Instalation
  2: cd dockerdemo/demo
  3:sudo nano dockerfile
    {FROM ubuntu:jammy
-    RUN apt-get update && apt-get -y install build-essential && apt-get clean
+    RUN apt-get update && apt-get -y(it means yes to every question) install build-essential && apt-get clean
     RUN useradd -d /home/cyrus -s /bin/bash cyrus
-    USER cyrus
+    USER cyrus(Before this line everything excute as root line)
     WORKDIR /home/cyrus
     CMD ["/bin/bash"]
     }
-  4:sudo docker build -t my-ubuntu .
+  4:sudo docker build -t(means tag the image name we would like to have) my-ubuntu .
   5: sudo docker run -it --rm my-ububntu ( NOW YOU CAN USE THE CONTAINER INSIDE. YOU CAN CREATE A TABLE BY CREATE my_table and so on. you can exit by running exit)
   6: sudo docker image ls
   }
@@ -48,6 +48,9 @@ Instalation
     CMD ["/usr/bin/php", "-S", "0.0.0.0:8000"]
     WORKDIR /app}
   5: sudo docker build -t my-php .
+  }
+  #
+  
     
 
    
