@@ -35,8 +35,12 @@ Instalation
     CMD ["/bin/bash"]
     }
   4:sudo docker build -t(means tag the image name we would like to have) my-ubuntu .
-  5: sudo docker run -it --rm my-ububntu ( NOW YOU CAN USE THE CONTAINER INSIDE. YOU CAN CREATE A TABLE BY CREATE my_table and so on. you can exit by running exit)
+  5: sudo docker run -it(interactive terminal) --rm(when the container start it will remove automaticly data like error) my-ububntu ( NOW YOU CAN USE THE CONTAINER INSIDE. YOU CAN CREATE A TABLE BY CREATE my_table and so on. 
+  ps ax -> show you the process id number.
+  
+  you can exit by running exit)
   6: sudo docker image ls
+  
   }
 # HOW TO PULL PHP CONTAINER AND USE IT.
 {
@@ -45,11 +49,20 @@ Instalation
   3: sudo cp ../demo/dockerfile .
   4: sudo nano dockerfile {
     change apt-get essential to apt-get php
-    CMD ["/usr/bin/php", "-S", "0.0.0.0:8000"]
-    WORKDIR /app}
+    ENV DEBIAN_FRONTEND noninteractive
+    CMD ["/usr/bin/php", "-S", "0.0.0.0:8000"] OR
+    ENTRYPOINT ["usr/bin/php"]
+    CMD ["-S", "0.0.0.0:8000"]
+    WORKDIR /app
+    EXPOSE 8000}
   5: sudo docker build -t my-php .
+  6:mkdir pages
+  7: sudo docker run -v $(pwd)/pages:/app --rm -p 8000:8000 my-php
   }
   #
+
+  sudo docker -v $(pwd):/app -it --rm my-ubuntu
+  
   
     
 
