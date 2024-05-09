@@ -62,7 +62,24 @@ Instalation
   #
 
   sudo docker -v $(pwd):/app -it --rm my-ubuntu
-  
+
+# about docker compose , docker network, docker reverse proxy, docker 
+  sudo nano docker-compose.yaml
+    {
+      services:
+  php_http:
+    image: my-php
+    build: .
+    volumes:
+      - type: bind
+        source: ./pages
+        target: /app
+    ports:
+      - 8000:8000
+    }
+    sudo docker compose up or sudo docker compose -d
+    sudo docker container logs CONTAINER  -? it shows you the container in the compose that are running and shows you if there is any errors. 
+    
   
     
 
