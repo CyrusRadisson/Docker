@@ -78,7 +78,7 @@ Instalation
       - 8000:8000
     }
     sudo docker compose up or sudo docker compose -d
-    sudo docker container logs CONTAINER  -? it shows you the container in the compose that are running and shows you if there is any errors. 
+    sudo docker container logs CONTAINER  -> it shows you the container in the compose that are running and shows you if there is any errors. 
     
   
     
